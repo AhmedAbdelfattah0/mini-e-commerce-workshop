@@ -7,8 +7,9 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class ProductsAlbumService {
   productsSubject: BehaviorSubject<any> = new BehaviorSubject([]);
+  cartItemsCountSubject: BehaviorSubject<number> = new BehaviorSubject(0);
   isHomePage: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-
+  cartItemsCount:number[]=[];
   constructor(private httpClient: HttpClient) {
     this.getAllProducts();
   }

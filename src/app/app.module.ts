@@ -6,8 +6,14 @@ import { AppComponent } from './app.component';
 import { ProductsAlbumComponent } from './products-album/products-album.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsDetailsComponent } from './products-details/products-details.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { StarRatingComponent } from './star-rating/star-rating.component';
+ import { StarRatingComponent } from './star-rating/star-rating.component';
+import { CustomModelComponent } from './custom-model/custom-model.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ProductIdentificationComponent } from './product-identification/product-identification.component';
+import { ProductMetaDataComponent } from './product-meta-data/product-meta-data.component';
+
+
 
 
 @NgModule({
@@ -15,14 +21,18 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
     AppComponent,
     ProductsAlbumComponent,
     ProductsDetailsComponent,
-    StarRatingComponent
-  ],
+    StarRatingComponent,
+    CustomModelComponent,
+    ProductIdentificationComponent,
+    ProductMetaDataComponent,
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
-   ],
+     BrowserAnimationsModule,
+     MatDialogModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

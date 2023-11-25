@@ -1,68 +1,38 @@
-<div class="mt-6">
-  <div class="col-10 mx-auto d-flex containerGap">
-    <div class="col-4">
-      <div class="d-flex flex-column gap">
-        <div class="fw-bold">
-          <p>{{productDetails?.category}}</p>
-          <p class="fs-4 ">{{productDetails?.title}}</p>
-        </div>
-        <div class="text-muted">{{productDetails?.description}}</div>
-        <div class="d-flex imgGap">
-          <div *ngFor="let image of (imagesList|async); let i = index">
-            <div class="overlay">
-              <img [src]="image" [style.opacity]="selectedImageIndex === i ? 0.7 : 1" width="50" height="50" alt=""
-                (click)="selectImage(i,image)">
 
-            </div>
-          </div>
-        </div>
+
+
+<div class="mt-6 bg-whitesmoke">
+  <div class="col-10 mx-auto d-flex gap">
+    <div class="row">
+      <div class="col">
+
+        <app-product-identification [productDetails]="productDetails" (selectImageEvent)="selectImage($event)" [imagesListInput]="imagesList" [selectedImageIndex]="selectedImageIndex"></app-product-identification>
+      </div>
+      <div class="col"  [@bounceDiv]="bounceDivState" >
+        <img  class="selectedImage" [src]="selectedImage" alt="">
+      </div>
+      <div class="col">
+        <app-product-meta-data  [productDetails]="productDetails" (selectedColorEvent)="selectedColor($event)" ></app-product-meta-data>
+
       </div>
     </div>
-    <div class="col-4">
-      <img class="selectedImage" [src]="selectedImage" alt="">
-    </div>
-    <div class="col-3">
-      <div class="d-flex flex-column gap">
-        <div class="fw-bold">
-          Size
-          <div class="d-flex imgGap">
-            <a class="size-section" *ngFor="let size of productDetails?.size; let i=index;"
-              [ngClass]="{'selectedSize':selectedSizeIndex==i}" (click)="selectedSize(i)">
-              <span>{{size}}</span>
-            </a>
-          </div>
-        </div>
-        <div class="fw-bold d-flex justify-content-between w-255">
 
-          <div class="text-muted">
-
-            REVIEWS
-          </div>
-          <app-star-rating [rating]="productDetails?.rate"></app-star-rating>
-        </div>
-        <div class="fw-bold w-255">
-          <div class="d-flex justify-content-between">
-            <div class="text-muted">PRICE</div>
-            <div> {{productDetails.price | currency:'USD'}}</div>
-          </div>
-        </div>
-
-
-        <div class="fw-bold">
-          COLOR
-          <div class="d-flex imgGap selectedColorContainer">
-            <a class="size-section" *ngFor="let color of productDetails?.colors; let i=index;"
-              [ngClass]="{'selectedColor':selectedColorIndex==i}" [style.background]="color" (click)="selectedColor(i)">
-
-            </a>
-            <!-- <div class="circle delay1"></div>
-            <div class="circle delay2"></div>
-            <div class="circle delay3"></div>
-            <div class="circle delay4"></div> -->
-          </div>
-        </div>
-      </div>
-
-    </div>
   </div>
 </div>
+
+
+<div class="col-10 bg-white mx-auto  h-514  mt-6-5">
+
+ <div class="row pt-3 align-items-center">
+  <a class=" col " (click)="openModal()" ><i class="bi bi-play-circle"></i></a>
+  <div class="col d-flex imgGap"> <i class="bi bi-arrow bi-arrow-left-short" *ngIf="index>0"  (click)="backward()" ></i> <i *ngIf="index<(products.length-1)" class="bi bi-arrow bi-arrow-right-short" (click)="forward()"></i>    </div>
+
+  <div class="col btn btn-dark" (click)="addToCart()">
+    ADD TO CART
+  </div>
+  <a class="col " (click)="openModal()" ><i class="bi bi-heart"></i></a>
+
+  </div>
+ </div>
+
+

@@ -1,0 +1,21 @@
+
+.gap ,.gap-44{
+  gap: 44px;
+}
+
+
+.overlay {
+  position: block;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.5s ease-in-out;
+
+  cursor: pointer;
+}
+
+
+.imgGap {
+  gap: 6px;
+}
+

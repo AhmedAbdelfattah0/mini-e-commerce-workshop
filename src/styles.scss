@@ -3,3 +3,16 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import './styles/global/variables';
+@import './styles/global/mixins';
+
+.bg-whitesmoke , body{
+  background: #f6f6f6;
+}
+
+// html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-muted {
+  color: #9c9c9c !important;
+}

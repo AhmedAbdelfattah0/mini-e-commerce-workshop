@@ -1,3 +1,4 @@
+@import '../../styles.scss';
 .products-album-link {
   text-decoration: none;
   color: #000;
@@ -7,7 +8,7 @@
   margin-top: 7rem;
 }
 
-.gap {
+.gap ,.gap-44{
   gap: 44px;
 }
 
@@ -15,39 +16,13 @@
   gap: 6px;
 }
 
-.containerGap {
-  gap: 44px;
-}
 
-.overlay {
-  position: block;
-  width: 50px;
-  height: 50px;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: opacity 0.5s ease-in-out;
-}
 
 .selectedImage {
   width: 346px;
   height: 346px;
 }
 
-.size-section,
-.selectedSize {
-  border-radius: 100%;
-  border: solid 1px #000;
-  font-size: 14px;
-  padding: 14px;
-  margin-top: 5px;
-  text-decoration: none;
-  color: #000;
-  cursor: pointer;
-}
-
-.selectedSize {
-  background-color: #000;
-  color: #fff;
-}
 
 .text-muted {
   color: #9c9c9c !important;
@@ -57,55 +32,88 @@
   width: 255px;
 }
 
-.selectedColorContainer {
-  position: relative;
 
-  &:hover .delay1 {
-    animation: waves 2.5s linear;
-    animation-delay: .1s;
-  }
 
-  &:hover .delay2 {
-    animation: waves 2.5s linear .7s forwards,
-  }
 
-  &:hover .delay3 {
-    animation: waves 2.5s linear 1.3s forwards;
-  }
 
-  &:hover .delay4 {
-    animation: waves 2.5s linear 1.9s forwards;
-  }
+
+.bg-white {
+  background-color: #fff;
 }
 
-.selectedColor {
-  border: solid #d1d1d1;
-  animation: 1s linear;
-
-}
-
-
-.circle {
-  display: block;
+.h-514 {
   height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  border: solid #0194c7;
-  margin: 10px;
-  transition: 5s ease;
-  position: relative;
-  top: 0px
+  padding-left: 50px;
+  @include breakpoint(sm){
+  height: max-content;
+
+  }
+  a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+    font-size: 29px;
+  }
 }
 
 
-@-webkit-keyframes waves {
+.bi-arrow{
+  font-size: 25px;
+  font-weight: 1000;
+  cursor: pointer;
+}
+.mt-6-5{
+  margin-top: 6.5rem;
+}
+.btn-dark{
+  // color:#fff;
+  border-radius: 0;
+  width: max-content;
+  @include breakpoint(sm){
+     margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+.gap-44{
+  @include breakpoint(sm){
+    gap:0;
+  }
+}
+
+
+
+
+.selectedImage:hover {
+  animation: bloop 1s linear;
+
+}
+
+@keyframes bloop {
   0% {
-    transform: scale(1);
-    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, .95, 1);
   }
 
   100% {
-    transform: scale(4);
-    opacity: 0;
+    transform: scale3d(1, 1, 1);
   }
 }
